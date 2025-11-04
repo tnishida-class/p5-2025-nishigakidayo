@@ -10,6 +10,6 @@ function setup(){
     } else {
       stroke(255, 0, 0);
     }
-    ellipse(50, 50, size, size);
+    
   }
 }
