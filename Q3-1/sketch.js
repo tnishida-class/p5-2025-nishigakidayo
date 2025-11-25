@@ -18,7 +18,7 @@ function draw(){
   }
   else{
     speed = 1
-  }
+  }      
   count = (count + speed) % cycle;
   if(count < cycle / 2){
     size = 50 + cycle - count;
