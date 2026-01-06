@@ -25,18 +25,28 @@ function draw(){
   rect(0, groundY, width, height - groundY);
 
   // BLANK[1] キャラクターの左右移動
-
-  // BLANK[2] 重力とジャンプ
+ if(keyIsDown(LEFT_ARROW)){ x -= 5; }
+  if(keyIsDown(RIGHT_ARROW)){ x += 5; }
+  if(keyIsDown("A".charCodeAt(0))){ 
+    if(keyIsDown(LEFT_ARROW)){ x -= 10; } 
+    if(keyIsDown(RIGHT_ARROW)){ x += 10; }
+  }
+ // BLANK[2] 重力とジャンプ
 
   // 速くなりすぎないように制限
   vx = constrain(vx, -20, 20);
   vy = constrain(vy, -20, 20);
+  y = constrain(y, 0, groundY - 48);
 
   // 位置を更新
   x += vx;
   y += vy;
-
+  vy += g;
+  if(y > groundY - 48 && keyIsDown(" ".charCodeAt(0))){
+    vy = -1 * vy;
+  }
   // キャラクターを描く
   fill(0);
   ellipse(x, y, size, size);
+
 }
